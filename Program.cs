@@ -9,6 +9,7 @@ namespace Task12
     {
         public delegate List<Book> Finder<T>(T item);
         public delegate List<Book> Finder<T, U>(T item, U item1);
+        public delegate void Findervoid<T>(T item);
         static void Main(string[] args)
         {
             Library library = new Library();
@@ -21,6 +22,7 @@ namespace Task12
             string findname = "i";
             int page1 = 130;
             int page2 = 200;
+            string no = "KI1";
 
             Finder<string> searcher = new Finder<string>(library.FindAllBooksByName);
 
@@ -30,7 +32,13 @@ namespace Task12
             Finder<int, int> searcher2 = new Finder<int, int>(library.FindAllBooksByPageCountRange);
 
             searcher2(page1, page2);
-                
+
+            Findervoid<string> voider = new Findervoid<string>(library.RemoveAllBookByName);
+            
+            voider(findname);
+            voider -= library.RemoveAllBookByName;
+            voider += library.RemoveByNo;
+            voider(no);
         }
     }
 }
