@@ -9,6 +9,7 @@ namespace Task12.models
 {
     class Library
     {
+        
         public List<Book> books;
 
         public Library()
@@ -19,13 +20,12 @@ namespace Task12.models
         {
             books.Add(item);
         }
-
         public List<Book> FindAllBooksByName(string item)
         {
             List<Book> booknames = new List<Book>();
             foreach (Book book in books)
             {
-                if (book.Name.Contains(item))
+                if (book.Name.Contains(item.ToUpper()))
                 {
                     booknames.Add(book);
                 }
@@ -40,7 +40,7 @@ namespace Task12.models
         {
             foreach (Book book in books)
             {
-                if (book.Name.Contains(item))
+                if (book.Name.Contains(item.ToUpper()))
                 {
                     books.Remove(book);
                     Console.WriteLine($"{book.Name} kitabi silindi!");
@@ -54,15 +54,15 @@ namespace Task12.models
             List<Book> searchedbooks = new List<Book>();
             foreach (Book book in books)
             {
-                if (book.Name.Contains(item))
+                if (book.Name.Contains(item.ToUpper()))
                 {
                     searchedbooks.Add(book);
                 }
-                else if (book.AuthorName.Contains(item))
+                else if (book.AuthorName.Contains(item.ToUpper()))
                 {
                     searchedbooks.Add(book);
                 }
-                else if (book.PageCount.ToString().Contains(item))
+                else if (book.PageCount.ToString().Contains(item.ToUpper()))
                 {
                     searchedbooks.Add(book);
                 }
