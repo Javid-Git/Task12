@@ -21,7 +21,7 @@ namespace Task12.models
                     Console.WriteLine("Kitabin adi 3 herfden cox olmalidir!");
                     value = Console.ReadLine();
                 }
-                _name = value;
+                _name = value.Trim().ToUpper();
             }
         }
         public string AuthorName { get; set; }

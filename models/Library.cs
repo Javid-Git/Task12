@@ -8,13 +8,16 @@ namespace Task12.models
 {
     class Library
     {
-        List<Book> books;
+        public List<Book> books;
 
         public Library()
         {
             books = new List<Book>();
         }
-
+        public void AddToList(Book item)
+        {
+            books.Add(item);
+        }
         public List<Book> FindAllBooksByName(string item)
         {
             List<Book> booknames = new List<Book>();
